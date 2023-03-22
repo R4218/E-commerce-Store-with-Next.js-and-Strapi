@@ -25,10 +25,10 @@ const NavBar = () => {
           <span class="ml-3 text-xl">My Shop</span>
         </a>
         <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
-          <Link href="#" class="mr-5 hover:text-gray-900">Home</Link>
-          <Link href="#" class="mr-5 hover:text-gray-900">About</Link>
-          <Link href="#" class="mr-5 hover:text-gray-900">Products</Link>
-          <Link href="#" class="mr-5 hover:text-gray-900">Contact</Link>
+          <Link href="/" class="mr-5 hover:text-gray-900">Home</Link>
+          <Link href="/about" class="mr-5 hover:text-gray-900">About</Link>
+          <Link href="/products" class="mr-5 hover:text-gray-900">Products</Link>
+          <Link href="/contact" class="mr-5 hover:text-gray-900">Contact</Link>
         </nav>
         <button class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">
           Login
