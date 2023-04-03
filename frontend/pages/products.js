@@ -3,12 +3,11 @@ import { useEffect, useState } from 'react';
 const Products = () => {
     const [products, setProducts] = useState([]);
     const PRODUCTS_TOKEN = process.env.NEXT_PUBLIC_PRODUCTS_TOKEN;
+    const PRODUCTS_API_URL = process.env.NEXT_PUBLIC_PRODUCTS_API_URL;
 
     useEffect(() => {
         async function fetchData() {
-            const response = await fetch(`${ 
-                process.env.NEXT_PUBLIC_PRODUCTS_API_URL
-             }/api/products?populate=*`, {
+            const response = await fetch(`${PRODUCTS_API_URL}/api/products?populate=*`, {
                 headers: {
                     'Authorization': `Bearer ${PRODUCTS_TOKEN}`
                 }
