@@ -2,12 +2,15 @@ import { useEffect, useState } from 'react';
 
 const Products = () => {
     const [products, setProducts] = useState([]);
+    const PRODUCTS_TOKEN = process.env.NEXT_PUBLIC_PRODUCTS_TOKEN;
 
     useEffect(() => {
         async function fetchData() {
-            const response = await fetch('http://localhost:1337/api/products?populate=*', {
+            const response = await fetch(`${ 
+                process.env.NEXT_PUBLIC_PRODUCTS_API_URL
+             }/api/products?populate=*`, {
                 headers: {
-                    'Authorization': 'Bearer d19bd1f74667f3020242fa7e66db9b0425e76bda4b81240a26b91438e8f6af3bf567807d176dd2080aeb7d52b50f916d571c232b3e7e02c3dac9a02a72fb672079c7d58470c744ba8feb2aa880c2f42b2fdefd82125079fbeb1f6c7569a211e9dbca51a8840de7e6dcfcab2b483687cf33f86333837149973a929c6dbf47efb7'
+                    'Authorization': `Bearer ${PRODUCTS_TOKEN}`
                 }
             });
             const data = await response.json();
@@ -37,7 +40,7 @@ const Products = () => {
                         {products.map((product) => (
                             <div key={product.id} className="lg:w-1/4 md:w-1/2 m-4 w-full bg-zinc-100 rounded-lg">
                                 <a className="block relative h-48 rounded overflow-hidden">
-                                    <img alt="ecommerce" className="object-cover object-center w-full h-full block" src="https://dummyimage.com/421x261" />
+                                    <img alt="ecommerce" className="object-cover object-center w-full h-full block" src={product.attributes.Image.data.attributes.url} />
                                 </a>
                                 <div className="p-4">
                                     <h3 className="text-gray-500 text-xs tracking-widest tit /le-font mb-1">{product.attributes.Category}</h3>
